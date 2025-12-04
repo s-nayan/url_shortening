@@ -16,7 +16,7 @@ router.post("/",async(req,res) => {
         try{
             let url = await Url.findOne({originalId});
             if(url){
-                return req.json(url);
+                return res.json(url);
             }else{
                 const shortUrl = `${base}/${urlId}`;
                 let url = new Url({
@@ -92,7 +92,7 @@ router.put("/:urlId", async (req,res) => {
         res.status(400).json("Invalid Url");
     }
 });
-router.delete("/urlId", async (req,res) => {
+router.delete("/:urlId", async (req,res) => {
     try{
         const urlId = req.params.urlId;
         const url = Url.findByIdAndDelete({urlId});

@@ -11,7 +11,7 @@ router.get("/:urlId", async (req,res) => {
                 urlId: req.params.urlId,
             },
             {
-                $inc:{acessCount:1},
+                $inc:{accessCount:1},
             }
         );
         return res.redirect(url.originalId);
